@@ -3,7 +3,7 @@ language: php
 env:
   global:
     - COMPOSER_ROOT_VERSION=4.0.x-dev
-    - CODECOV_TOKEN=
+    - CODECOV_TOKEN=2bf73b6c-117a-4181-9211-94663fa5dbd6
     - SCRUT_TOKEN=d0cb5cb06d4d296fe4d849c2bd5008934cbf8afe5d256ef146df32d935a783a6
 
 matrix:
