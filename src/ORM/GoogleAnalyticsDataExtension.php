@@ -3,6 +3,7 @@
 namespace Dynamic\IntegrationConfig\ORM;
 
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\LiteralField;
@@ -26,10 +27,11 @@ class GoogleAnalyticsDataExtension extends DataExtension
     public function updateCMSFields(FieldList $fields)
     {
         $fields->removeByName([
+            'UseGA',
             'GACode',
         ]);
 
-        $fields->addFieldsToTab('Root.Main', array(
+        $fields->addFieldToTab('Root.Main', CompositeField::create(
             CheckboxField::create('UseGA', 'Enable Google Analytics', $this->owner->GACode),
             Wrapper::create(
                 /*
@@ -41,7 +43,7 @@ class GoogleAnalyticsDataExtension extends DataExtension
                 $gaCode = TextField::create('GACode')
                     ->setTitle('Google Analytics Profile ID')
                     ->setDescription('in the format <strong>UA-XXXXX-X</strong>')
-            )->displayIf('UseGA')->isChecked()->end(),
+            )->displayIf('UseGA')->isChecked()->end()
         ));
     }
 }
