@@ -19,6 +19,7 @@ class GoogleTagManagerDataExtension extends DataExtension
     private static $db = array(
         'UseGTM' => 'Boolean',
         'GTMHeadCode' => 'HTMLText',
+        'GTMBodyCode' => 'HTMLText',
     );
 
     /**
@@ -29,6 +30,7 @@ class GoogleTagManagerDataExtension extends DataExtension
         $fields->removeByName([
             'UseGTM',
             'GTMHeadCode',
+            'GTMBodyCode',
         ]);
 
         $fields->addFieldToTab('Root.Main', CompositeField::create(
@@ -39,7 +41,7 @@ class GoogleTagManagerDataExtension extends DataExtension
                 $gtmHeadCode = TextareaField::create('GTMHeadCode')
                     ->setTitle('Google Tag Manager Head Code')
                     ->setDescription('The code that should go in the &lt;head&gt; tag.'),
-                $gtmBodyCode = TextareaField::create('GTMHBodyCode')
+                $gtmBodyCode = TextareaField::create('GTMBodyCode')
                     ->setTitle('Google Tag Manager Body Code')
                     ->setDescription('The code that goes after the opening &lt;body&gt; tag.')
             )->displayIf('UseGTM')->isChecked()->end()
