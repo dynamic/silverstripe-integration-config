@@ -33,6 +33,7 @@ class GoogleTagManagerConfigTest extends SapphireTest
         $object = Injector::inst()->create(IntegrationConfigSetting::class);
         $fields = $object->getCMSFields();
         $this->assertInstanceOf(FieldList::class, $fields);
-        $this->assertNotNull($fields->dataFieldByName('GTMCode'));
+        $this->assertNotNull($fields->dataFieldByName('GTMHeadCode'));
+        $this->assertNotNull($fields->dataFieldByName('GTMBodyCode'));
     }
 }
