@@ -36,8 +36,11 @@ class GoogleTagManagerDataExtension extends DataExtension
         $fields->addFieldToTab('Root.Main', CompositeField::create(
             CheckboxField::create('UseGTM', 'Enable Google Tag Manager', $this->owner->GTMCode),
             Wrapper::create(
-                LiteralField::create('GTMDescription', '<p>It is strongly recomended to set up a google analytics tag in tag manager, 
-                    instead of managing tags and analytics sepratly.</p>'),
+                LiteralField::create(
+                    'GTMDescription',
+                    '<p>It is strongly recomended to set up a google analytics tag in tag manager, 
+                    instead of managing tags and analytics sepratly.</p>'
+                ),
                 $gtmHeadCode = TextareaField::create('GTMHeadCode')
                     ->setTitle('Google Tag Manager Head Code')
                     ->setDescription('The code that should go in the &lt;head&gt; tag.'),
