@@ -4,3 +4,4 @@ Name: silverstripeintegration-configconfig
 Dynamic\IntegrationConfig\Model\IntegrationConfigSetting:
   extensions:
     - Dynamic\IntegrationConfig\ORM\GoogleAnalyticsDataExtension
+    - Dynamic\IntegrationConfig\ORM\GoogleTagManagerDataExtension
